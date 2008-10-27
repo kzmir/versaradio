@@ -1,0 +1,5 @@
+PLUGIN_VERSARADIO_MODULE_NAME
+	EN	Versatile Radio Meta Data
+
+PLUGIN_VERSARADIO_MODULE_NAME_DESC
+	EN	Retrieve custom meta data and album art from web radios websites.
