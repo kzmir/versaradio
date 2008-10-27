@@ -1,20 +1,32 @@
-package Slim::Plugin::VersaRadio::Radios::FIP;
-
+###############################################################################
 #   $URL$
 #   $Rev$
 #   $Rev$
 #   $Author$
 #   $Date$
 #   $Id$
+###############################################################################
+# VersaRadio, (c) Robin V.    
+#                  robinsp+versaradio (à) gmail  .com
+# Source is under Mozilla Public License 1.1 ( http://www.mozilla.org/MPL/ )
 #
-# Get custom meta data from web radio websites
+# Versa Radio is a plugin for slimdevices Squeezcenter that permits retrieval 
+# of custom meta data from web radio websites
+#
+###############################################################################
+# FIP.pm is a module of Versa Radio that retrieves song information and album
+# cover for french national radio FIP.
+# Website: http://fipradio.com/
+# Stream: http://mp3.live.tv-radio.com/fip/all/fiphautdebit.mp3 
+
+package Plugins::VersaRadio::Radios::FIP;
 
 use strict;
 use warnings;
 use version; our $VERSION = qw('0.0.1);
 use Data::Dumper;
 
-use base qw(Slim::Plugin::VersaRadio::Radios::VersaRadioBase);
+use base qw(Plugins::VersaRadio::Radios::VersaRadioBase);
 
 
 

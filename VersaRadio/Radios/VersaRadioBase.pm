@@ -1,13 +1,24 @@
-package Slim::Plugin::VersaRadio::Radios::VersaRadioBase;
-
+###############################################################################
 #   $URL$
 #   $Rev$
 #   $Rev$
 #   $Author$
 #   $Date$
 #   $Id$
+###############################################################################
+# VersaRadio, (c) Robin V.    
+#                  robinsp+versaradio (à) gmail  .com
+# Source is under Mozilla Public License 1.1 ( http://www.mozilla.org/MPL/ )
 #
-# Get custom meta data from web radio websites
+# Versa Radio is a plugin for slimdevices Squeezcenter that permits retrieval 
+# of custom meta data from web radio websites
+#
+###############################################################################
+# VersaRadioBase.pm is the base class for all radio modules, it handles async
+# http requests and delegate content parsing to radio submodules
+  
+
+package Plugins::VersaRadio::Radios::VersaRadioBase;
 
 use strict;
 use warnings;
@@ -15,20 +26,19 @@ use version; our $VERSION = qw('0.0.1);
 
 
 use Data::Dumper;
-use Carp qw(cluck);
 
 
 our $radioParams = {
-	fullName => "Base Module full name",
+	fullName => 'Base Module full name',
 	name => 'BaseModule',
 	defaultData => 'Present',
 	userAgent => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022; .NET CLR 1.1.4322)',
 	refererFirstURL => 'http://www.google.com/search?q=music+web+radio&ie=utf-8&oe=utf-8&aq=t',
 	refererSecondURL => 'http://www.google.com/search?q=music+web+radio&ie=utf-8&oe=utf-8&aq=t',
-	minWaitBetweenRequests => 11,
+	minWaitBetweenRequests => 11, # in seconds
 };
 
-my $log = $Slim::Plugin::VersaRadio::Plugin::log;
+my $log = $Plugins::VersaRadio::Plugin::log;
 
 sub radioParams {
 	my $obclass = shift;	

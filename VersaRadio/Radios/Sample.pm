@@ -1,4 +1,4 @@
-package Slim::Plugin::VersaRadio::Radios::Sample;
+package Plugins::VersaRadio::Radios::Sample;
 
 #   $URL$
 #   $Rev$
@@ -12,9 +12,8 @@ package Slim::Plugin::VersaRadio::Radios::Sample;
 use strict;
 use warnings;
 use version; our $VERSION = qw('0.0.1);
-use Data::Dumper;
 
-use base qw(Slim::Plugin::VersaRadio::Radios::VersaRadioBase);
+use base qw(Plugins::VersaRadio::Radios::VersaRadioBase);
 
 
 
