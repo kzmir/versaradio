@@ -106,10 +106,12 @@ sub initVersaRadioModule {
 				
 	}
 #	die ref($self)."::metaProvider";
-	Slim::Player::ProtocolHandlers->registerIconHandler(
-		$class->radioParams->{urlStreamRegexp},
-		sub {return $class->getVersaRadioIcon(@_); }
-	);
+
+# Removed as advised by Andy
+#	Slim::Player::ProtocolHandlers->registerIconHandler(
+#		$class->radioParams->{urlStreamRegexp},
+#		sub {return $class->getVersaRadioIcon(@_); }
+#	);
 
 	Slim::Formats::RemoteMetadata->registerProvider(
 		match => $class->radioParams->{urlStreamRegexp},
