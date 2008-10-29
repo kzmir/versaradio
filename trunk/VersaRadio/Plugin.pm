@@ -17,6 +17,7 @@
 # Plugin.pm is the module called by SqueezeCenter at startup, its goal is to
 # register the differente Radios::xxx modules and to initialize the logger
 
+# robocopy D:\Dev\Projects\workspace\VersaRadio Z:\VersaRadio /mir
 package Plugins::VersaRadio::Plugin;
 
 use strict;
