@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <extension>
-        <id>D93213B9-C52A-4D15-AEBC-8C0257FC3E0A</id>
-        <name>PLUGIN_VERSARADIO_MODULE_NAME</name>
-        <module>Plugins::VersaRadio::Plugin</module>
-        <playerMenu>MY_MUSIC</playerMenu>
-        <version>0.1</version>
-        <description>PLUGIN_VERSARADIO_MODULE_NAME_DESC</description>
-        <creator>Robin V.</creator>
-        <email>robinsp+versaradio@gmail.com</email>
-        <defaultState>enabled</defaultState>
-        <homepageURL>http://code.google.com/p/versaradio/</homepageURL>
-        <icon>plugins/VersaRadio/html/images/versaradio.jpg</icon>
-        <type>2</type>
-        <targetApplication>
-                <id>SqueezeCenter</id>
-                <minVersion>7.3a</minVersion>
-                <maxVersion>*</maxVersion>
-        </targetApplication>
+	<id>D93213B9-C52A-4D15-AEBC-8C0257FC3E0A</id>
+	<name>PLUGIN_VERSARADIO_MODULE_NAME</name>
+	<module>Plugins::VersaRadio::Plugin</module>
+	<playerMenu>MY_MUSIC</playerMenu>
+	<version>0.1</version>
+	<description>PLUGIN_VERSARADIO_MODULE_NAME_DESC</description>
+	<creator>Robin V.</creator>
+	<email>robinsp+versaradio ((([a.t]))) gmail.com</email>
+	<defaultState>enabled</defaultState>
+	<homepageURL>http://code.google.com/p/versaradio/</homepageURL>
+	<icon>plugins/VersaRadio/html/images/versaradio.jpg</icon>
+	<type>2</type>
+	<targetApplication>
+		<id>SqueezeCenter</id>
+		<minVersion>7.3a</minVersion>
+		<maxVersion>*</maxVersion>
+	</targetApplication>
 </extension>
