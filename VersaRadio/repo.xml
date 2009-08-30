@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+ <extensions>
+   <details>
+     <title lang="EN">VersaRadio repository</title>
+   </details>
+   <plugins>
+     <plugin name="VersaRadio" version="0.1.2" target="windows|mac|unix" minTarget="7.3" maxTarget="*">
+       <title lang="EN">VersaRadio</title>
+       <title lang="DE">VersaRadio</title>
+       <desc lang="EN">Extracts songs meta data from web radio web sites.</desc>
+       <changes lang="EN">0.1.2 Original</changes>
+       <creator>Robin V.</creator>
+       <email>robinsp+versaradio ((([a.t]))) gmail.com</email>
+       <url>http://versaradio.googlecode.com/files/VersaRadio-0.1.2.zip</url>
+       <sha>3de99418e3079f5348676cbd1e8dfc727a551c56</sha>
+     </plugin>
+   </plugins>
+</extensions>

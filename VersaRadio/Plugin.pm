@@ -7,7 +7,7 @@
 #   $Id$
 ###############################################################################
 # VersaRadio, (c) Robin V.    
-#                  robinsp+versaradio (à) gmail  .com
+#                  robinsp+versaradio (Ã ) gmail  .com
 # Source is under Mozilla Public License 1.1 ( http://www.mozilla.org/MPL/ )
 #
 # Versa Radio is a plugin for slimdevices Squeezcenter that permits retrieval 
@@ -17,10 +17,10 @@
 # Plugin.pm is the module called by SqueezeCenter at startup, its goal is to
 # register the differente Radios::xxx modules and to initialize the logger
 
-# robocopy D:\Dev\Projects\workspace\VersaRadio Z:\VersaRadio /mir
 package Plugins::VersaRadio::Plugin;
 
 use strict;
+
 use warnings;
 use version; our $VERSION = qw('0.0.1);
 
