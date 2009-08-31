@@ -7,7 +7,7 @@
 #   $Id$
 ###############################################################################
 # VersaRadio, (c) Robin V.    
-#                  robinsp+versaradio (à) gmail  .com
+#                  robinsp+versaradio (Ã ) gmail  .com
 # Source is under Mozilla Public License 1.1 ( http://www.mozilla.org/MPL/ )
 #
 # Versa Radio is a plugin for slimdevices Squeezcenter that permits retrieval 
