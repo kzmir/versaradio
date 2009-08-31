@@ -16,7 +16,63 @@
 ###############################################################################
 # VersaRadioBase.pm is the base class for all radio modules, it handles async
 # http requests and delegate content parsing to radio submodules
-  
+
+=head1 SEQUENCE DIAGRAM
+
+To be used at:  http://www.websequencediagrams.com/
+
+=head2 Init and refreshMetaData
+
+	participant SqueezeServer as SS
+	participant Plugin.pm as P
+	participant "Radios::RadioModule.pm" as RM
+	participant ":runUpdateTask" as RMRUT
+	participant ":refreshMetaData" as RMRMD
+	#participant "Radios::VersaRadioBase.pm" as VRB
+	
+	
+	SS->P: initPlugin
+	loop foreach Radio Module
+	   P->RM: initVersaRadioModule
+	   activate RM
+	   RM->RM: mergeRadioParams
+	   RM->RM: lastQueryTimeStamp = time()-120
+	   RM->RM: Instancie 2 \nSlim...SimpleAsyncHTTP
+	   RM->SS: Slim::Formats::RemoteMetadata->registerProvider(regexp, module::metaProvider)
+	   RM-->P: return
+	   deactivate RM
+	   P-->SS: return
+	end
+	
+	SS->RM: metaProvider()
+	activate RM
+	RM-->RM: lastMetaProviderTimeStamp = time()
+	opt Update task not running  (!updateTaskRunning)
+	
+	   RM->RMRUT: runUpdateTask()
+	   activate RMRUT
+	   RMRUT->RMRUT: updateTaskRunning = 1
+	   RMRUT->RMRMD: refreshMetaData()
+	   activate RMRMD
+	   opt lastQueryTimeStamp < 10 secondes
+	      RMRMD-->RMRUT: return
+	      RMRUT-->RM: return
+	      RM-->SS: return
+	   end
+	   RMRMD->RMRMD: lastQueryTimeStamp = time()
+	   RMRMD->RMRMD: firstUrlAsyncHttp->get()
+	   RMRMD->RMRMD: secondUrlAsyncHttp->get()
+	   RMRMD-->RMRUT: return
+	   deactivate RMRMD
+	   RMRUT-->RM: return
+	   deactivate RMRUT
+	end
+	RM->RM: copy MetaData
+	RM->RM: getVersaRadioIcon()
+	RM-->SS: return $metaDataCopy;
+
+
+=cut
 
 package Plugins::VersaRadio::Radios::VersaRadioBase;
 
@@ -27,6 +83,8 @@ use version; our $VERSION = qw('0.0.1);
 
 use Data::Dumper;
 
+# TODO: add comments!
+# TODO: convert "firstUrl", "secondUrl" by a data structure of unlimited size
 
 our $radioParams = {
 	fullName => 'Base Module full name',
@@ -148,7 +206,8 @@ sub asyncHTTPFirstUrlCallback {
 
 	my $refreshCode = sub {return $class->refreshMetaData};
 	Slim::Utils::Timers::killTimers( $http, $refreshCode);
-	
+
+# TODO: don't stopUpdateTask, use a timer in metaProvider instead
 	if(time()-$class->radioVars()->{lastMetaProviderTimeStamp}<60 and $class->radioVars()->{updateTaskRunning}) {
 		$log->debug("Set refreshMetaData task in ".$class->radioParams()->{minWaitBetweenRequests}." seconds");
 		Slim::Utils::Timers::setTimer( $http, Time::HiRes::time() + $class->radioParams()->{minWaitBetweenRequests}, $refreshCode);
@@ -213,6 +272,9 @@ sub getVersaRadioIcon {
 	}
 }
 
+# TODO: replace the lastMetaProviderTimeStamp by a timer reinitialized 
+# every time the metaProvider is called and stoping the task after 60 seconds
+# TODO: rename the methods, all these names are difficult to understand
 sub metaProvider {
 	my $class = shift;
 	my ( $client, $url ) = @_;

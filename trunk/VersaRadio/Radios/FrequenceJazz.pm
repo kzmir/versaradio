@@ -7,7 +7,7 @@
 #   $Id$
 ###############################################################################
 # VersaRadio, (c) Robin V.    
-#                  robinsp+versaradio (à) gmail  .com
+#                  robinsp+versaradio (Ã ) gmail  .com
 # Source is under Mozilla Public License 1.1 ( http://www.mozilla.org/MPL/ )
 #
 # Versa Radio is a plugin for slimdevices Squeezcenter that permits retrieval 
@@ -32,7 +32,7 @@ use base qw(Plugins::VersaRadio::Radios::VersaRadioBase);
 
 our $radioParams = {
 
-	fullName=>'Fréquence Jazz',
+	fullName=>'FrÃ©quence Jazz',
 
 	# the name of the .pm of the module
 	name => 'FrequenceJazz',
