@@ -140,6 +140,7 @@ sub mergeRadioParams {
 
 sub initVersaRadioModule {
 	my $class = shift;
+	$log->debug("calling initVersaRadioModule: ",Dumper(@_), "\n");
 	$class->mergeRadioParams();
 	$class->radioVars()->{lastQueryTimeStamp} = time()-120;
 	# Create a request
@@ -194,7 +195,9 @@ sub mergeMetaData {
 }
 
 sub asyncHTTPFirstUrlCallback {
+	# class name (from class call)
 	my $class = shift;
+	# asynchttp object
 	my $http = shift;
 
 	my $content = $http->content();
@@ -277,6 +280,8 @@ sub getVersaRadioIcon {
 # TODO: rename the methods, all these names are difficult to understand
 sub metaProvider {
 	my $class = shift;
+		$log->debug("calling metaProvider: ",Dumper(\@_), "\n");
+	
 	my ( $client, $url ) = @_;
 	
 #	my $icon = __PACKAGE__->_pluginDataFor('icon');
